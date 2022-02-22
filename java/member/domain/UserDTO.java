@@ -3,6 +3,10 @@ package member.domain;
 public class UserDTO {
     public static String LOGIN_APP = "Login";
 
+    private final static UserDTO userDTO = new UserDTO();
+    private UserDTO(){};
+    public static UserDTO getInstance(){return userDTO;}
+
     private String id;
     private String pw;
     private String name;
