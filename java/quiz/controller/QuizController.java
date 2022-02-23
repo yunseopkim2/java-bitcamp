@@ -2,12 +2,15 @@ package quiz.controller;
 
 import quiz.service.Feb06Service;
 import quiz.service.Feb06ServiceImpl;
+import quiz.service.Feb07Service;
+import quiz.service.Feb07ServiceImpl;
 
 import java.util.Scanner;
 
 public class QuizController {
    public void execute(Scanner scanner){
        Feb06Service feb06Service = new Feb06ServiceImpl();
+       Feb07Service feb07Service = new Feb07ServiceImpl();
 
        while(true) {
            System.out.println("0.Exit 1)2월6일 2)2월7일 3)2월8일 4)2월10일");
@@ -46,6 +49,31 @@ public class QuizController {
                            System.out.println("Wrong Number");
                            break;
                    }
+               case "2" :
+                   System.out.println("2월 7일");
+                   System.out.println("[소메뉴]\n 0.Exit 1.주사위 2. 가위바위보 3. 소수 구하기 4.윤년/평년 5.임의숫자 맞추기");
+                   switch (scanner.next()){
+                       case "0":
+                           System.out.println("### 종료 ###");return;
+                       case "1":
+                           System.out.println("### 1.주사위 ###");
+                           feb07Service.dice(scanner);break;
+                       case "2":
+                           System.out.println("### 2.가위바위보 ###");
+                           feb07Service.rps(scanner);break;
+                       case  "3":
+                           System.out.println("### 3.소수 구하기 ###");
+                           feb07Service.getPrime(scanner);break;
+                       case  "4":
+                           System.out.println("### 4.윤년/평년 ###");
+                           feb07Service.leapYear(scanner);break;
+                       case  "5":
+                           System.out.println("### 5.임의숫자 맞추기 ###");
+                           feb07Service.numberGolf(scanner);break;
+                       default:
+                           System.out.println("Wrong Number"); break;
+                   }
+                   break;
 
            }
 
